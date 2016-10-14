@@ -8,13 +8,13 @@ from template import fill_template, dc_template
 csv_file = 'transfer.csv'
 
 with open(csv_file, 'rb') as csvfile:
-    directory = row['filename'].replace('.pdf', '')
+    rows = csv.DictReader(csvfile)
     for row in rows:
         # first file
-        directory = row['filename']
+        directory = row['filename'].replace('.pdf', '') 
         if not os.path.exists(directory):
-            os.makedirs(directory)
-        new_file = directory + '/ie.xml'
+            os.makedirs(directory + '/content/streams/')
+        new_file = directory + '/content/ie.xml'
         template = fill_template(row)
 
         dc_file = directory + '/dc.xml'
