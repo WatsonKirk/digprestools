@@ -16,7 +16,7 @@ with open(csv_file, 'rb') as csvfile:
         if not os.path.exists(directory):
             os.makedirs(directory + '/content/streams/')
 
-        shutil.move('../pdfs/' +directory + '.pdf', directory + '/content/streams')
+        move('../pdfs/' +directory + '.pdf', directory + '/content/streams')
         new_file = directory + '/content/ie.xml'
         template = fill_template(row)
 
