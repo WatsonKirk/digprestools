@@ -1,6 +1,6 @@
 import csv
 from lxml import etree
-from shutil import copyfile
+from shutil import copyfile, move
 import os
 from template import fill_template, dc_template
 
@@ -12,8 +12,11 @@ with open(csv_file, 'rb') as csvfile:
     for row in rows:
         # first file
         directory = row['filename'].replace('.pdf', '') 
+        
         if not os.path.exists(directory):
             os.makedirs(directory + '/content/streams/')
+
+        shutil.move('../pdfs/' +directory + '.pdf', directory + '/content/streams')
         new_file = directory + '/content/ie.xml'
         template = fill_template(row)
 
