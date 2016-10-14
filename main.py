@@ -8,7 +8,7 @@ from template import fill_template, dc_template
 csv_file = 'transfer.csv'
 
 with open(csv_file, 'rb') as csvfile:
-    rows = csv.DictReader(csvfile)
+    directory = row['filename'].replace('.pdf', '')
     for row in rows:
         # first file
         directory = row['filename']
