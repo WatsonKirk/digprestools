@@ -10,13 +10,11 @@ def fill_template(r):
   <dc:identifier>""" + r['ark'] + """</dc:identifier>
   <dc:relation>""" + r['relation'] + """</dc:relation>
   <dc:publisher>""" + r['publisher'] + """</dc:publisher>
-<dc:identifier>""" + r['trinomial'] + """</dc:identifier>
   <dc:creator>""" + r['creator'] + """</dc:creator>
   <dc:date>""" + r['date'] + """</dc:date>
   <dc:subject>""" + r['subject'] + """</dc:subject>
 <dc:rights>""" + r['rights'] + """</dc:rights>
-  <dc:description>""" + r['projname'] + """</dc:description>
-  <dc:description>""" + r['projnumber'] + """</dc:description>
+  <dc:description>""" + r['description'] + """</dc:description>
 <dc:ispartof>""" + r['ispartof'] + """</dc:ispartof>
         </dc:record>
       </mets:xmlData>
@@ -135,7 +133,7 @@ def fill_template(r):
   </mets:amdSec>
   <mets:fileSec>
     <mets:fileGrp USE="VIEW" ID="rep1" ADMID="rep1-amd">
-      <mets:file ID="fid1-1" MIMETYPE="application/pdf" ADMID="fid1-1-amd">
+      <mets:file ID="fid1-1" MIMETYPE="image/jpeg" ADMID="fid1-1-amd">
         <mets:FLocat xlin:href="file://""" + r['filename'] + """" xmlns:xlin="http://www.w3.org/1999/xlink" LOCTYPE="URL"/>
       </mets:file>
     </mets:fileGrp>
@@ -161,13 +159,11 @@ def dc_template(row):
   <dc:identifier>""" + row['ark'] + """</dc:identifier>
   <dc:relation>""" + row['relation'] + """</dc:relation>
   <dc:publisher>""" + row['publisher'] + """</dc:publisher>
-<dc:identifier>""" + row['trinomial'] + """</dc:identifier>
   <dc:creator>""" + row['creator'] + """</dc:creator>
   <dc:date>""" + row['date'] + """</dc:date>
   <dc:subject>""" + row['subject'] + """</dc:subject>
 <dc:rights>""" + row['rights'] + """</dc:rights>
-  <dc:description>""" + row['projname'] + """</dc:description>
-  <dc:description>""" + row['projnumber'] + """</dc:description>
+  <dc:description>""" + row['description'] + """</dc:description>
 <dc:ispartof>""" + row['ispartof'] + """</dc:ispartof>
 </record>
     """
