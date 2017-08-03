@@ -1,4 +1,7 @@
-def fill_template(r):
+
+
+
+def ie_template(batch_rows):
     template = """
     <?xml version="1.0" encoding="UTF-8"?>
 <mets:mets xmlns:mets="http://www.loc.gov/METS/">
@@ -6,62 +9,27 @@ def fill_template(r):
     <mets:mdWrap MDTYPE="DC">
       <mets:xmlData>
         <dc:record xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-            <dc:title>""" + r['title'] + """</dc:title>
-  <dc:identifier>""" + r['ark'] + """</dc:identifier>
-  <dc:relation>""" + r['relation'] + """</dc:relation>
-  <dc:publisher>""" + r['publisher'] + """</dc:publisher>
-  <dc:creator>""" + r['creator'] + """</dc:creator>
-  <dc:date>""" + r['date'] + """</dc:date>
-  <dc:subject>""" + r['subject'] + """</dc:subject>
-<dc:rights>""" + r['rights'] + """</dc:rights>
-  <dc:description>""" + r['description'] + """</dc:description>
-<dc:ispartof>""" + r['ispartof'] + """</dc:ispartof>
+            <dc:title>""" + batch_rows[0]['title'] + """</dc:title>
+              <dc:identifier>""" + batch_rows[0]['ark'] + """</dc:identifier>
+              <dc:relation>""" + batch_rows[0]['relation'] + """</dc:relation>
+              <dc:publisher>""" + batch_rows[0]['publisher'] + """</dc:publisher>
+              <dc:creator>""" + batch_rows[0]['creator'] + """</dc:creator>
+              <dc:date>""" + batch_rows[0]['date'] + """</dc:date>
+              <dc:subject>""" + batch_rows[0]['subject'] + """</dc:subject>
+            <dc:rights>""" + batch_rows[0]['rights'] + """</dc:rights>
+              <dc:description>""" + batch_rows[0]['description'] + """</dc:description>
+            <dc:ispartof>""" + batch_rows[0]['ispartof'] + """</dc:ispartof>
         </dc:record>
       </mets:xmlData>
     </mets:mdWrap>
-  </mets:dmdSec>
-  <mets:amdSec ID="fid1-1-amd">
-    <mets:techMD ID="fid1-1-amd-tech">
-      <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="dnx">
-        <mets:xmlData>
-          <dnx xmlns="http://www.exlibrisgroup.com/dps/dnx">
-            <section id="generalFileCharacteristics">
-              <record>
-                <key id="label">""" + r['ark'] + "." + r['filename'] + """</key>
-              </record>
-            </section>
-            <section id="fileFixity">
-              <record>
-                <key id="fixityType">SHA1</key>
-                <key id="fixityValue">""" + r['sha1'] + """</key>
-              </record>
-            </section>
-          </dnx>
-        </mets:xmlData>
-      </mets:mdWrap>
-    </mets:techMD>
-    <mets:rightsMD ID="fid1-1-amd-rights">
-      <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="dnx">
-        <mets:xmlData>
-          <dnx xmlns="http://www.exlibrisgroup.com/dps/dnx"/>
-        </mets:xmlData>
-      </mets:mdWrap>
-    </mets:rightsMD>
-    <mets:sourceMD ID="fid1-1-amd-source">
-      <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="dnx">
-        <mets:xmlData>
-          <dnx xmlns="http://www.exlibrisgroup.com/dps/dnx"/>
-        </mets:xmlData>
-      </mets:mdWrap>
-    </mets:sourceMD>
-    <mets:digiprovMD ID="fid1-1-amd-digiprov">
-      <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="dnx">
-        <mets:xmlData>
-          <dnx xmlns="http://www.exlibrisgroup.com/dps/dnx"/>
-        </mets:xmlData>
-      </mets:mdWrap>
-    </mets:digiprovMD>
-  </mets:amdSec>
+  </mets:dmdSec>"""
+
+    counter = 0
+    for row in batch_rows:
+        counter += 1
+        template += inner_template_mets_amdsec(row, counter)
+
+    template += """
   <mets:amdSec ID="rep1-amd">
     <mets:techMD ID="rep1-amd-tech">
       <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="dnx">
@@ -132,18 +100,26 @@ def fill_template(r):
     </mets:digiprovMD>
   </mets:amdSec>
   <mets:fileSec>
-    <mets:fileGrp USE="VIEW" ID="rep1" ADMID="rep1-amd">
-      <mets:file ID="fid1-1" MIMETYPE="image/jpeg" ADMID="fid1-1-amd">
-        <mets:FLocat xlin:href="file://""" + r['filename'] + """" xmlns:xlin="http://www.w3.org/1999/xlink" LOCTYPE="URL"/>
-      </mets:file>
+    <mets:fileGrp USE="VIEW" ID="rep1" ADMID="rep1-amd">"""
+
+    counter = 0
+    for row in batch_rows:
+        counter += 1
+        template += inner_template_file_sec(row, counter)
+
+    template += """
     </mets:fileGrp>
   </mets:fileSec>
   <mets:structMap ID="rep1-1" TYPE="LOGICAL">
     <mets:div LABEL="PRESERVATION_MASTER;VIEW">
-      <mets:div LABEL="Table of Contents">
-        <mets:div LABEL=""" + r['filename'] + """ TYPE="FILE">
-          <mets:fptr FILEID="fid1-1"/>
-        </mets:div>
+      <mets:div LABEL="Table of Contents">"""
+
+    counter = 0
+    for row in batch_rows:
+        counter += 1
+        template += inner_template_mets_div(row, template)
+
+    template += """
       </mets:div>
     </mets:div>
   </mets:structMap>
@@ -151,20 +127,82 @@ def fill_template(r):
     """
     return template.strip()
 
+
+def inner_template_mets_div(row, counter):
+    template = """        <mets:div LABEL=""" + row['filename'] + """ TYPE="FILE">
+          <mets:fptr FILEID="fid""" + str(counter) + """-1"/>
+        </mets:div>"""
+    return template
+
+
+def inner_template_mets_amdsec(row, counter):
+    template = """
+      <mets:amdSec ID="fid""" + str(counter) + """-1-amd">
+    <mets:techMD ID="fid""" + str(counter) + """-1-amd-tech">
+      <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="dnx">
+        <mets:xmlData>
+          <dnx xmlns="http://www.exlibrisgroup.com/dps/dnx">
+            <section id="generalFileCharacteristics">
+              <record>
+                <key id="label">""" + row['ark'] + "." + row['filename'] + """</key>
+              </record>
+            </section>
+            <section id="fileFixity">
+              <record>
+                <key id="fixityType">SHA1</key>
+                <key id="fixityValue">""" + row['sha1'] + """</key>
+              </record>
+            </section>
+          </dnx>
+        </mets:xmlData>
+      </mets:mdWrap>
+    </mets:techMD>
+    <mets:rightsMD ID="fid""" + str(counter) + """-1-amd-rights">
+      <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="dnx">
+        <mets:xmlData>
+          <dnx xmlns="http://www.exlibrisgroup.com/dps/dnx"/>
+        </mets:xmlData>
+      </mets:mdWrap>
+    </mets:rightsMD>
+    <mets:sourceMD ID="fid""" + str(counter) + """-1-amd-source">
+      <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="dnx">
+        <mets:xmlData>
+          <dnx xmlns="http://www.exlibrisgroup.com/dps/dnx"/>
+        </mets:xmlData>
+      </mets:mdWrap>
+    </mets:sourceMD>
+    <mets:digiprovMD ID="fid""" + str(counter) + """-1-amd-digiprov">
+      <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="dnx">
+        <mets:xmlData>
+          <dnx xmlns="http://www.exlibrisgroup.com/dps/dnx"/>
+        </mets:xmlData>
+      </mets:mdWrap>
+    </mets:digiprovMD>
+  </mets:amdSec>
+    """
+    return template.strip()
+
+def inner_template_file_sec(row, counter):
+    template = """
+      <mets:file ID="fid""" + str(counter) + """-1" MIMETYPE="image/jpeg" ADMID="fid""" + str(counter) + """-1-amd">
+        <mets:FLocat xlin:href="file://""" + row['filename'] + """" xmlns:xlin="http://www.w3.org/1999/xlink" LOCTYPE="URL"/>
+      </mets:file>"""
+    return template.strip()
+
 def dc_template(row):
     template_string = """
-    <?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <record xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <dc:title>""" + row['title'] + """</dc:title>
-  <dc:identifier>""" + row['ark'] + """</dc:identifier>
-  <dc:relation>""" + row['relation'] + """</dc:relation>
-  <dc:publisher>""" + row['publisher'] + """</dc:publisher>
-  <dc:creator>""" + row['creator'] + """</dc:creator>
-  <dc:date>""" + row['date'] + """</dc:date>
-  <dc:subject>""" + row['subject'] + """</dc:subject>
-<dc:rights>""" + row['rights'] + """</dc:rights>
-  <dc:description>""" + row['description'] + """</dc:description>
-<dc:ispartof>""" + row['ispartof'] + """</dc:ispartof>
+  <dc:title>""" + row[0]['title'] + """</dc:title>
+  <dc:identifier>""" + row[0]['ark'] + """</dc:identifier>
+  <dc:relation>""" + row[0]['relation'] + """</dc:relation>
+  <dc:publisher>""" + row[0]['publisher'] + """</dc:publisher>
+  <dc:creator>""" + row[0]['creator'] + """</dc:creator>
+  <dc:date>""" + row[0]['date'] + """</dc:date>
+  <dc:subject>""" + row[0]['subject'] + """</dc:subject>
+  <dc:rights>""" + row[0]['rights'] + """</dc:rights>
+  <dc:description>""" + row[0]['description'] + """</dc:description>
+  <dc:ispartof>""" + row[0]['ispartof'] + """</dc:ispartof>
 </record>
     """
     return template_string.strip()
