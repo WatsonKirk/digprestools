@@ -1,5 +1,4 @@
 import csv
-from lxml import etree
 from shutil import copyfile, move
 import os
 from template import fill_template, dc_template
@@ -11,12 +10,12 @@ with open(csv_file, 'rb') as csvfile:
     rows = csv.DictReader(csvfile)
     for row in rows:
         # first file
-        directory = row['filename'].replace('.pdf', '') 
+        directory = row['filename'].replace('.tif', '')
         
         if not os.path.exists(directory):
             os.makedirs(directory + '/content/streams/')
 
-        move('../pdfs/' +directory + '.pdf', directory + '/content/streams')
+        move('../tifs/' +directory + '.tif', directory + '/content/streams')
         new_file = directory + '/content/ie.xml'
         template = fill_template(row)
 
