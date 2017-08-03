@@ -117,7 +117,7 @@ def ie_template(batch_rows):
     counter = 0
     for row in batch_rows:
         counter += 1
-        template += inner_template_mets_div(row, template)
+        template += inner_template_mets_div(row, counter)
 
     template += """
       </mets:div>
