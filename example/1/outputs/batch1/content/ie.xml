@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mets:mets xmlns:mets="http://www.loc.gov/METS/">
+  <mets:dmdSec ID="ie-dmd">
+    <mets:mdWrap MDTYPE="DC">
+      <mets:xmlData>
+        <dc:record xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <dc:title>Beckwith, Frank A.</dc:title>
+  <dc:identifier>ark:/87278/s68h1g0b</dc:identifier>
+  <dc:relation>dc_bpc</dc:relation>
+  <dc:publisher>Hosted by J. Willard Marriott Library, University of Utah</dc:publisher>
+  <dc:creator>Beckwith, Wanda Peterson, 1912-1998</dc:creator>
+  <dc:date>1948</dc:date>
+  <dc:subject>Weddings--Utah--Delta--Photographs; Married people--Photographs</dc:subject>
+<dc:rights>Digital image copyright 2004, Great Basin Museum.  All rights reserved.</dc:rights>
+  <dc:description>Photo showing John Robert Jordison and Belle Christensen Jordison wedding; left to right: John Jordison Sr., Karen Marie Degon Jordison (Carrie), John Robert Jordison, Belle Christensen Jordison, Madge Carole Christensen, Carol Ann Pratt. Carol was adopted by Madge Christensen, her mother is Joyce Pratt; Delta, Utah; Left to right:  John Jordison Sr., Karen Marie Degon Jordison (Carrie), John Robert Jordison, Belle Christensen Jordison, Madge Carole Christensen, Carol Ann Pratt.  Carol was adopted by Madge Christensen, her mother is Joyce Pratt.</dc:description>
+<dc:ispartof>Frank Asahel Beckwith Collection</dc:ispartof>
+        </dc:record>
+      </mets:xmlData>
+    </mets:mdWrap>
+  </mets:dmdSec>
+  <mets:amdSec ID="fid1-1-amd">
+    <mets:techMD ID="fid1-1-amd-tech">
+      <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="dnx">
+        <mets:xmlData>
+          <dnx xmlns="http://www.exlibrisgroup.com/dps/dnx">
+            <section id="generalFileCharacteristics">
+              <record>
+                <key id="label">ark:/87278/s68h1g0b.036_GBM.tif</key>
+              </record>
+            </section>
+            <section id="fileFixity">
+              <record>
+                <key id="fixityType">SHA1</key>
+                <key id="fixityValue">62ef44e07996e7fda50236f99063aadbc10acfaa</key>
+              </record>
+            </section>
+          </dnx>
+        </mets:xmlData>
+      </mets:mdWrap>
+    </mets:techMD>
+    <mets:rightsMD ID="fid1-1-amd-rights">
+      <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="dnx">
+        <mets:xmlData>
+          <dnx xmlns="http://www.exlibrisgroup.com/dps/dnx"/>
+        </mets:xmlData>
+      </mets:mdWrap>
+    </mets:rightsMD>
+    <mets:sourceMD ID="fid1-1-amd-source">
+      <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="dnx">
+        <mets:xmlData>
+          <dnx xmlns="http://www.exlibrisgroup.com/dps/dnx"/>
+        </mets:xmlData>
+      </mets:mdWrap>
+    </mets:sourceMD>
+    <mets:digiprovMD ID="fid1-1-amd-digiprov">
+      <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="dnx">
+        <mets:xmlData>
+          <dnx xmlns="http://www.exlibrisgroup.com/dps/dnx"/>
+        </mets:xmlData>
+      </mets:mdWrap>
+    </mets:digiprovMD>
+  </mets:amdSec>
+  #added
+  #  <mets:amdSec ID="fid2-1-amd">
+  #  <mets:techMD ID="fid2-1-amd-tech">
+  #   <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="dnx">
+  #      <mets:xmlData>
+  #        <dnx xmlns="http://www.exlibrisgroup.com/dps/dnx">
+  #          <section id="generalFileCharacteristics">
+  #            <record>
+  #              <key id="label">ark:/87278/s68h1g0b.010psff-a.tif</key>
+  #            </record>
+  #          </section>
+  #          <section id="fileFixity">
+  #            <record>
+  #              <key id="fixityType">SHA1</key>
+  #              <key id="fixityValue">62ef44e07996e7fda50236f99063aadbc10acfaa</key>
+  #            </record>
+  #          </section>
+  #        </dnx>
+  #      </mets:xmlData>
+  #    </mets:mdWrap>
+  #  </mets:techMD>
+  #  <mets:rightsMD ID="fid2-1-amd-rights">
+  #    <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="dnx">
+  #      <mets:xmlData>
+  #        <dnx xmlns="http://www.exlibrisgroup.com/dps/dnx"/>
+  #      </mets:xmlData>
+  #    </mets:mdWrap>
+  #  </mets:rightsMD>
+  #  <mets:sourceMD ID="fid2-1-amd-source">
+  #    <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="dnx">
+  #      <mets:xmlData>
+  #        <dnx xmlns="http://www.exlibrisgroup.com/dps/dnx"/>
+  #      </mets:xmlData>
+  #    </mets:mdWrap>
+  #  </mets:sourceMD>
+  #  <mets:digiprovMD ID="fid2-1-amd-digiprov">
+  #    <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="dnx">
+  #      <mets:xmlData>
+  #        <dnx xmlns="http://www.exlibrisgroup.com/dps/dnx"/>
+  #      </mets:xmlData>
+  #    </mets:mdWrap>
+  #  </mets:digiprovMD>
+  #</mets:amdSec>
+  
+  <mets:amdSec ID="rep1-amd">
+    <mets:techMD ID="rep1-amd-tech">
+      <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="dnx">
+        <mets:xmlData>
+          <dnx xmlns="http://www.exlibrisgroup.com/dps/dnx">
+            <section id="generalRepCharacteristics">
+              <record>
+                <key id="preservationType">PRESERVATION_MASTER</key>
+                <key id="usageType">VIEW</key>
+                <key id="RevisionNumber">1</key>
+                <key id="DigitalOriginal">false</key>
+              </record>
+            </section>
+          </dnx>
+        </mets:xmlData>
+      </mets:mdWrap>
+    </mets:techMD>
+    <mets:rightsMD ID="rep1-amd-rights">
+      <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="dnx">
+        <mets:xmlData>
+          <dnx xmlns="http://www.exlibrisgroup.com/dps/dnx"/>
+        </mets:xmlData>
+      </mets:mdWrap>
+    </mets:rightsMD>
+    <mets:sourceMD ID="rep1-amd-source">
+      <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="dnx">
+        <mets:xmlData>
+          <dnx xmlns="http://www.exlibrisgroup.com/dps/dnx"/>
+        </mets:xmlData>
+      </mets:mdWrap>
+    </mets:sourceMD>
+    <mets:digiprovMD ID="rep1-amd-digiprov">
+      <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="dnx">
+        <mets:xmlData>
+          <dnx xmlns="http://www.exlibrisgroup.com/dps/dnx"/>
+        </mets:xmlData>
+      </mets:mdWrap>
+    </mets:digiprovMD>
+  </mets:amdSec>
+  <mets:amdSec ID="ie-amd">
+    <mets:techMD ID="ie-amd-tech">
+      <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="dnx">
+        <mets:xmlData>
+          <dnx xmlns="http://www.exlibrisgroup.com/dps/dnx"/>
+        </mets:xmlData>
+      </mets:mdWrap>
+    </mets:techMD>
+    <mets:rightsMD ID="ie-amd-rights">
+      <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="dnx">
+        <mets:xmlData>
+          <dnx xmlns="http://www.exlibrisgroup.com/dps/dnx"/>
+        </mets:xmlData>
+      </mets:mdWrap>
+    </mets:rightsMD>
+    <mets:sourceMD ID="ie-amd-source">
+      <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="dnx">
+        <mets:xmlData>
+          <dnx xmlns="http://www.exlibrisgroup.com/dps/dnx"/>
+        </mets:xmlData>
+      </mets:mdWrap>
+    </mets:sourceMD>
+    <mets:digiprovMD ID="ie-amd-digiprov">
+      <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="dnx">
+        <mets:xmlData>
+          <dnx xmlns="http://www.exlibrisgroup.com/dps/dnx"/>
+        </mets:xmlData>
+      </mets:mdWrap>
+    </mets:digiprovMD>
+  </mets:amdSec>
+  <mets:fileSec>
+    <mets:fileGrp USE="VIEW" ID="rep1" ADMID="rep1-amd">
+      <mets:file ID="fid1-1" MIMETYPE="image/tiff" ADMID="fid1-1-amd">
+        <mets:FLocat xlin:href="file://003psff.tif" xmlns:xlin="http://www.w3.org/1999/xlink" LOCTYPE="URL"/>
+      </mets:file>
+	#added
+    # <mets:file ID="fid2-1" MIMETYPE="image/tiff" ADMID="fid2-1-amd">
+    #    <mets:FLocat xlin:href="file://010psff-a.tif" xmlns:xlin="http://www.w3.org/1999/xlink" LOCTYPE="URL"/>
+    #  </mets:file>
+    </mets:fileGrp>
+  </mets:fileSec>
+  <mets:structMap ID="rep1-1" TYPE="LOGICAL">
+    <mets:div LABEL="PRESERVATION_MASTER;VIEW">
+      <mets:div LABEL="Table of Contents">
+        <mets:div LABEL=036_GBM.tif TYPE="FILE">
+          <mets:fptr FILEID="fid1-1"/>
+        </mets:div>
+	#added
+	#<mets:div LABEL=010psff-a.tif TYPE="FILE">
+    #     <mets:fptr FILEID="fid2-1"/>
+    #    </mets:div>
+      </mets:div>
+    </mets:div>
+  </mets:structMap>
+</mets:mets>
