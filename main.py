@@ -3,11 +3,14 @@ from shutil import copyfile, move
 import os
 from template import fill_template, dc_template
 
-# read input
-csv_file = 'transfer.csv'
+#check for arguments
+if len(sys.argv) < 3:
+    print("Please pass the input csv as the first argument and the output dir as the second argument")
+    print("Example:\n\tpython main.py \"example/1/inputs/xml/transfer.csv\" \"example/1/outputs\"")
+    sys.exit(1)
 
-input_csv = sys.argv[1]
-input_dir =  os.path.dirname(input_csv)
+input_csv  = sys.argv[1]
+input_dir  = os.path.dirname(input_csv)
 output_dir = sys.argv[2]
 output_dir = output_dir + "/" + datetime.datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
 
