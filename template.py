@@ -1,6 +1,3 @@
-
-
-
 def ie_template(batch_rows):
     template = """
     <?xml version="1.0" encoding="UTF-8"?>
@@ -129,7 +126,7 @@ def ie_template(batch_rows):
 
 
 def inner_template_mets_div(row, counter):
-    template = """        <mets:div LABEL=""" + row['filename'] + """ TYPE="FILE">
+    template = """        <mets:div LABEL=\"""" + row['filename'] + """\" TYPE="FILE">
           <mets:fptr FILEID="fid""" + str(counter) + """-1"/>
         </mets:div>"""
     return template
