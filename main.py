@@ -43,7 +43,11 @@ def check_arguments():
         print("Example:\n\tpython main.py \"example/1/inputs/xml/transfer.csv\" \"example/1/outputs\"")
         sys.exit(1)
     input_csv = sys.argv[1]
-    input_dir = os.path.dirname(input_csv)
+    if not os.path.exists(input_csv):
+        print(input_csv + " does not exist")
+        sys.exit(1)
+
+    input_dir = os.path.dirname(os.path.realpath(input_csv))
     output_dir = sys.argv[2]
     output_dir = output_dir + "/" + datetime.datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
     return input_csv, input_dir, output_dir
