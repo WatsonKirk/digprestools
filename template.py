@@ -181,7 +181,7 @@ def inner_template_mets_amdsec(row, counter):
 
 def inner_template_file_sec(row, counter):
     template = """
-      <mets:file ID="fid""" + str(counter) + """-1" MIMETYPE="image/jpeg" ADMID="fid""" + str(counter) + """-1-amd">
+      <mets:file ID="fid""" + str(counter) + """-1" MIMETYPE="image/tiff" ADMID="fid""" + str(counter) + """-1-amd">
         <mets:FLocat xlin:href="file://""" + row['filename'] + """" xmlns:xlin="http://www.w3.org/1999/xlink" LOCTYPE="URL"/>
       </mets:file>"""
     return template.strip()
