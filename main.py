@@ -33,14 +33,14 @@ def main():
                 output_file.write(dc_template_string)
 
             for row in batch:
-                copyfile( input_dir + '/../tifs/' + row['filename'], directory + '/content/streams/' + row['filename'])
+                copyfile( input_dir + '/../files/' + row['filename'], directory + '/content/streams/' + row['filename'])
 
 
 def check_arguments():
     # check for arguments
     if len(sys.argv) < 3:
         print("Please pass the input csv as the first argument and the output dir as the second argument")
-        print("Example:\n\tpython main.py \"example/1/inputs/xml/transfer.csv\" \"example/1/outputs\"")
+        print("Example:\n\tpython main.py \"example/1/inputs/scripts/transfer.csv\" \"example/1/outputs\"")
         sys.exit(1)
     input_csv = sys.argv[1]
     if not os.path.exists(input_csv):
