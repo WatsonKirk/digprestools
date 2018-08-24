@@ -12,10 +12,10 @@ def ie_template(batch_rows):
               <dc:publisher>""" + batch_rows[0]['publisher'] + """</dc:publisher>
               <dc:creator>""" + batch_rows[0]['creator'] + """</dc:creator>
               <dc:type>""" + batch_rows[0]['type'] + """</dc:type>
-			  <dc:date>""" + batch_rows[0]['date'] + """</dc:date>
+	      <dc:date>""" + batch_rows[0]['date'] + """</dc:date>
               <dc:subject>""" + batch_rows[0]['subject'] + """</dc:subject>
-			  <dcterms:spatial>""" + batch_rows[0]['spatial'] + """</dcterms:spatial>
-			  <dc:rights>""" + batch_rows[0]['rights'] + """</dc:rights>
+	      <dcterms:spatial>""" + batch_rows[0]['spatial'] + """</dcterms:spatial>
+	      <dc:rights>""" + batch_rows[0]['rights'] + """</dc:rights>
               <dc:description>""" + batch_rows[0]['description'] + """</dc:description>
               <dcterms:isPartOf>""" + batch_rows[0]['ispartof'] + """</dcterms:isPartOf>
         </dc:record>
@@ -203,7 +203,7 @@ def dc_template(row):
   <dc:rights>""" + row[0]['rights'] + """</dc:rights>
   <dc:description>""" + row[0]['description'] + """</dc:description>
   <dcterms:spatial>""" + row[0]['spatial'] + """</dcterms:spatial>
-  <dcterms:isPartof>""" + row[0]['ispartof'] + """</dcterms:isPartOf>
+  <dcterms:isPartOf>""" + row[0]['ispartof'] + """</dcterms:isPartOf>
 </record>
     """
     return template_string.strip()
