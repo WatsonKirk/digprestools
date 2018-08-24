@@ -6,16 +6,18 @@ def ie_template(batch_rows):
     <mets:mdWrap MDTYPE="DC">
       <mets:xmlData>
         <dc:record xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-            <dc:title>""" + batch_rows[0]['title'] + """</dc:title>
+              <dc:title>""" + batch_rows[0]['title'] + """</dc:title>
               <dc:identifier>""" + batch_rows[0]['ark'] + """</dc:identifier>
               <dc:relation>""" + batch_rows[0]['relation'] + """</dc:relation>
               <dc:publisher>""" + batch_rows[0]['publisher'] + """</dc:publisher>
               <dc:creator>""" + batch_rows[0]['creator'] + """</dc:creator>
-              <dc:date>""" + batch_rows[0]['date'] + """</dc:date>
+              <dc:type>""" + batch_rows[0]['type'] + """</dc:type>
+			  <dc:date>""" + batch_rows[0]['date'] + """</dc:date>
               <dc:subject>""" + batch_rows[0]['subject'] + """</dc:subject>
-            <dc:rights>""" + batch_rows[0]['rights'] + """</dc:rights>
+			  <dcterms:spatial>""" + batch_rows[0]['spatial'] + """</dcterms:spatial>
+			  <dc:rights>""" + batch_rows[0]['rights'] + """</dc:rights>
               <dc:description>""" + batch_rows[0]['description'] + """</dc:description>
-            <dc:ispartof>""" + batch_rows[0]['ispartof'] + """</dc:ispartof>
+              <dcterms:isPartOf>""" + batch_rows[0]['ispartof'] + """</dcterms:isPartOf>
         </dc:record>
       </mets:xmlData>
     </mets:mdWrap>
@@ -127,7 +129,7 @@ def ie_template(batch_rows):
 
 def inner_template_mets_div(row, counter):
     template = """        <mets:div LABEL=\"""" + row['filename'] + """\" TYPE="FILE">
-          <mets:fptr FILEID="fid""" + str(counter) + """-1"/>
+          <mets:fptr FILEID="fid" """ + str(counter) + """ "-1"/>
         </mets:div>"""
     return template
 
@@ -196,10 +198,12 @@ def dc_template(row):
   <dc:publisher>""" + row[0]['publisher'] + """</dc:publisher>
   <dc:creator>""" + row[0]['creator'] + """</dc:creator>
   <dc:date>""" + row[0]['date'] + """</dc:date>
+  <dc:type>""" + row[0]['type'] + """</dc:type>
   <dc:subject>""" + row[0]['subject'] + """</dc:subject>
   <dc:rights>""" + row[0]['rights'] + """</dc:rights>
   <dc:description>""" + row[0]['description'] + """</dc:description>
-  <dc:ispartof>""" + row[0]['ispartof'] + """</dc:ispartof>
+  <dcterms:spatial>""" + row[0]['spatial'] + """</dcterms:spatial>
+  <dcterms:isPartof>""" + row[0]['ispartof'] + """</dcterms:isPartOf>
 </record>
     """
     return template_string.strip()
